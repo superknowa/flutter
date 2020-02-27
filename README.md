@@ -1,2 +1,2 @@
 # flutter
-Kursta yapılan çalışmalar.
+Kursta yapılan social app projesi.
