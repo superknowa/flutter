@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(),
-        body: Center(child: Yazi())
+        body: Center(child: Text("Merhaba"))
       ),
     );
   }
