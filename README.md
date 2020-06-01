@@ -1,2 +1,2 @@
-# flutter
-Kursta yapılan social app projesi.
+# Flutter & Dart: Sıfırdan Mobil App Geliştiriciliğine
+Kursta yapılan çalışmalar
