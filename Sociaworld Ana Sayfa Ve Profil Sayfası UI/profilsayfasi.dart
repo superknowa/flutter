@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:silinecek/gonderikarti.dart';
+import 'package:sociaworld/gonderikarti.dart';
 
 class ProfilSayfasi extends StatelessWidget {
 
