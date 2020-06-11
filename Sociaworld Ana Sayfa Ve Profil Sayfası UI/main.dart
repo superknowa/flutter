@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:silinecek/gonderikarti.dart';
-import 'package:silinecek/profilsayfasi.dart';
+import 'package:sociaworld/gonderikarti.dart';
+import 'package:sociaworld/profilsayfasi.dart';
 
 void main() => runApp(MyApp());
 
