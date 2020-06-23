@@ -10,7 +10,6 @@ class GonderiKarti extends StatelessWidget {
 
   const GonderiKarti({Key key, this.profilResimLinki, this.isimSoyad, this.gecenSure, this.gonderiResimLinki, this.aciklama}) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -44,22 +43,27 @@ class GonderiKarti extends StatelessWidget {
                                     ),
                                 fit: BoxFit.cover)),
                       ),
-                      SizedBox(width: 12.0),
+                      SizedBox(
+                        width: 12.0,
+                      ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text(isimSoyad,
-                              style: TextStyle(
-                                  fontSize: 15.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black)),
+                          Text(
+                            isimSoyad,
+                            style: TextStyle(
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
+                          ),
                           Text(
                             gecenSure,
                             style: TextStyle(
                                 fontSize: 12.0,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.grey),
-                          ),
+                          )
                         ],
                       ),
                     ],
@@ -70,45 +74,49 @@ class GonderiKarti extends StatelessWidget {
               SizedBox(
                 height: 15.0,
               ),
-              Text(
-                aciklama,
-                style: TextStyle(fontSize: 18.0, color: Colors.grey),
-              ),
+              Text(aciklama,
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    color: Colors.grey,
+                  )),
               SizedBox(
                 height: 20.0,
               ),
               Image.network(
-                gonderiResimLinki
-                ,
-                height: 200.0,
+                gonderiResimLinki,
                 width: double.infinity,
+                height: 200.0,
                 fit: BoxFit.cover,
               ),
               SizedBox(
-                      height: 4.0,
-                    ),
+                height: 4.0,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                  //Button
                   IkonluButonum(
                     ikonum: Icons.favorite,
                     yazi: "Beğen",
-                    fonksiyonum: (){print("Beğen çalıştı");},
-                    ),
+                    fonksiyonum: () {
+                      print("Beğen");
+                    },
+                  ),
                   IkonluButonum(
                     ikonum: Icons.comment,
                     yazi: "Yorum Yap",
-                    fonksiyonum: (){print("Yorum çalıştı");},
-                    ),
+                    fonksiyonum: () {
+                      print("Yorum");
+                    },
+                  ),
                   FlatButton.icon(
-                    onPressed: (){}, 
-                    icon: Icon( Icons.share, color: Colors.grey, ), 
-                    label: Text(
-                      "Paylaş",
-                      style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
-                      )
-                    )
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.share,
+                        color: Colors.grey,
+                      ),
+                      label: Text("Paylaş",
+                          style: TextStyle(
+                              color: Colors.grey, fontWeight: FontWeight.bold)))
                 ],
               )
             ],
@@ -120,17 +128,18 @@ class GonderiKarti extends StatelessWidget {
 }
 
 class IkonluButonum extends StatelessWidget {
-  IkonluButonum({this.ikonum, this.yazi, this.fonksiyonum});
-
   final IconData ikonum;
   final String yazi;
   final fonksiyonum;
 
+  IkonluButonum({this.ikonum, this.yazi, this.fonksiyonum});
+
   @override
   Widget build(BuildContext context) {
     return Material(
+      color: Colors.white,
       child: InkWell(
-        onTap: (){},
+        onTap: fonksiyonum,
         child: Container(
           padding: EdgeInsets.all(8.0),
           child: Row(
@@ -139,12 +148,14 @@ class IkonluButonum extends StatelessWidget {
                 ikonum,
                 color: Colors.grey,
               ),
-              SizedBox(width: 8.0),
-              Text(
-                yazi,
-                style:
-                    TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
-              )
+              SizedBox(
+                width: 8.0,
+              ),
+              Text(yazi,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey,
+                  ))
             ],
           ),
         ),
