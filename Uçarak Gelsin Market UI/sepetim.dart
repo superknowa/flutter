@@ -12,17 +12,17 @@ class Sepetim extends StatelessWidget {
         ListTile(
           title: Text("Çikolatalı Gofret"),
           subtitle: Text("2 adet x 3.50 TL"),
-          trailing: Text("7TL"),
+          trailing: Text("7 TL"),
         ),
         ListTile(
           title: Text("Meyve Suyu"),
           subtitle: Text("1 adet x 2 TL"),
-          trailing: Text("2TL"),
+          trailing: Text("2 TL"),
         ),
         ListTile(
           title: Text("Islak Kek"),
           subtitle: Text("2 adet x 5.50 TL"),
-          trailing: Text("11TL"),
+          trailing: Text("11 TL"),
         ),
         SizedBox(height: 20.0,),
 
