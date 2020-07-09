@@ -1,10 +1,10 @@
-import 'package:fcbefore/urun_detay.dart';
 import 'package:flutter/material.dart';
+import 'package:fmarket/urun_detay.dart';
 
 class Kategori extends StatefulWidget {
   final String kategori;
 
-  const Kategori({this.kategori});
+  const Kategori({Key key, this.kategori}) : super(key: key);
 
   @override
   _KategoriState createState() => _KategoriState();
@@ -124,27 +124,25 @@ class _KategoriState extends State<Kategori> {
     }
   }
 
-  Widget urunKarti(String isim, String fiyat, String resimYolu,
-      {bool mevcut = false}) {
+  Widget urunKarti(String isim, String fiyat, String resimYolu, {bool mevcut = false}) {
     return GestureDetector(
-      onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => UrunDetay(
-                  isim: isim,
-                  fiyat: fiyat,
-                  resimYolu: resimYolu,
-                  mevcut: mevcut,
-                )));
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>UrunDetay(
+          isim: isim,
+          fiyat: fiyat,
+          resimYolu: resimYolu,
+          mevcut: mevcut,
+        )));
       },
-      child: Container(
+          child: Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20.0),
             color: Colors.white,
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.withOpacity(0.2),
-                spreadRadius: 2.0,
                 blurRadius: 4.0,
+                spreadRadius: 2.0,
               )
             ]),
         child: Column(
@@ -156,35 +154,31 @@ class _KategoriState extends State<Kategori> {
                 width: 120.0,
                 height: 80.0,
                 decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: NetworkImage(resimYolu),
-                    fit: BoxFit.cover,
-                  ),
-                  borderRadius: BorderRadius.circular(20.0),
-                ),
+                    image: DecorationImage(
+                      image: NetworkImage(resimYolu),
+                      fit: BoxFit.cover,
+                    ),
+                    borderRadius: BorderRadius.circular(20.0)),
               ),
             ),
             SizedBox(
               height: 8.0,
             ),
-            Text(
-              isim,
-              style: TextStyle(
+            Text(isim,
+                style: TextStyle(
                   fontSize: 14.0,
                   fontWeight: FontWeight.bold,
-                  color: Colors.grey[600]),
-            ),
+                  color: Colors.grey[600],
+                )),
             SizedBox(
               height: 8.0,
             ),
-            Text(
-              fiyat,
-              style: TextStyle(
-                fontSize: 14.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.red[400],
-              ),
-            )
+            Text(fiyat,
+                style: TextStyle(
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.red[400],
+                )),
           ],
         ),
       ),

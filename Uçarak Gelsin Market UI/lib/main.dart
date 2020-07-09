@@ -1,17 +1,19 @@
-import 'package:fcbefore/urunler.dart';
-import 'package:fcbefore/sepetim.dart';
 import 'package:flutter/material.dart';
+import 'package:fmarket/sepetim.dart';
+import 'package:fmarket/urunler.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Uçarak Gelsin',
-      home: AnaSayfa(),
       debugShowCheckedModeBanner: false,
+      title: 'Projem',
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+      ),
+      home: AnaSayfa(),
     );
   }
 }
@@ -23,17 +25,13 @@ class AnaSayfa extends StatefulWidget {
 
 class _AnaSayfaState extends State<AnaSayfa> {
   int _aktifIcerikNo = 0;
-
-  List _icerikler;
+  List<Widget> _icerikler;
 
   @override
   void initState() {
     super.initState();
 
-    _icerikler = [
-      Urunler(),
-      Sepetim(),
-    ];
+    _icerikler = [Urunler(), Sepetim()];
   }
 
   @override
@@ -43,8 +41,8 @@ class _AnaSayfaState extends State<AnaSayfa> {
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.red[400]),
         elevation: 0.0,
-        centerTitle: true,
         backgroundColor: Colors.white,
+        centerTitle: true,
         title: Text(
           "Uçarak Gelsin",
           style: TextStyle(
@@ -57,35 +55,25 @@ class _AnaSayfaState extends State<AnaSayfa> {
           padding: EdgeInsets.all(0.0),
           children: <Widget>[
             UserAccountsDrawerHeader(
-                accountName: Text("Selçuk Mert"),
-                accountEmail: Text("selm123@mailim.com"),
-                currentAccountPicture: Container(
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: NetworkImage(
-                              "https://cdn.pixabay.com/photo/2016/03/09/15/10/man-1246508_960_720.jpg"),
-                          fit: BoxFit.cover),
-                      borderRadius: BorderRadius.circular(50.0)),
+              accountName: Text("Selçuk Mert"),
+              accountEmail: Text("selm123@mailim.com"),
+              currentAccountPicture: Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: NetworkImage("https://cdn.pixabay.com/photo/2016/03/09/15/10/man-1246508_960_720.jpg"),
+                    fit: BoxFit.cover
+                    ),
+                    borderRadius: BorderRadius.circular(50.0),
                 ),
-                decoration: BoxDecoration(color: Colors.red[400])),
-            ListTile(
-              title: Text('Siparişlerim'),
-              onTap: () {},
+              ),
+              decoration: BoxDecoration(color: Colors.red[400]),
             ),
-            ListTile(
-              title: Text('İndirimlerim'),
-              onTap: () {},
-            ),
-            ListTile(
-              title: Text('Ayarlar'),
-              onTap: () {},
-            ),
-            ListTile(
-              title: Text('Çıkış Yap'),
-              onTap: () {
-                Navigator.pop(context); // Menuyu kapatır
-              },
-            ),
+            ListTile(title: Text("Siparişlerim"), onTap: (){},),
+            ListTile(title: Text("İndirimlerim"), onTap: (){},),
+            ListTile(title: Text("Ayarlar"), onTap: (){},),
+            ListTile(title: Text("Çıkış Yap"), onTap: (){
+              Navigator.pop(context);
+            },),
           ],
         ),
       ),
@@ -95,9 +83,9 @@ class _AnaSayfaState extends State<AnaSayfa> {
         unselectedItemColor: Colors.grey[600],
         items: [
           BottomNavigationBarItem(
-              title: Text("Ürünler"), icon: Icon(Icons.home)),
+              icon: Icon(Icons.home), title: Text("Ürünler")),
           BottomNavigationBarItem(
-              title: Text("Sepetim"), icon: Icon(Icons.shopping_cart)),
+              icon: Icon(Icons.shopping_cart), title: Text("Sepetim"))
         ],
         onTap: (int tiklananButonPozisyonNo) {
           setState(() {
