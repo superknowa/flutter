@@ -1,3 +1,8 @@
+android/settings.gradle içindeki kodları aşağıdaki kodlarla değiştir.
+
+
+include ':app'
+
 def flutterProjectRoot = rootProject.projectDir.parentFile.toPath()
 
 def plugins = new Properties()
@@ -11,3 +16,4 @@ plugins.each { name, path ->
     include ":$name"
     project(":$name").projectDir = pluginDirectory
 }
+
